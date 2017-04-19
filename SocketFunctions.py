@@ -15,7 +15,10 @@ def udt_send(packet, socket, port, corChance = 0, lossChance = 0):
     if LossCheck(lossChance):   # If packet "lost", send nothing
         return
     else:                       # Otherwise send as normal
-        socket.sendto(packet, (ServerName, port))
+        try:
+            socket.sendto(packet, (ServerName, port))
+        except:
+            print("SOCKET ERROR", socket)
 
 def rdt_rcv(socket):
     rcvpkt, clientAddress = socket.recvfrom(2048)

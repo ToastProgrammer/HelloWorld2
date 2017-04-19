@@ -10,6 +10,10 @@ ServerName = 'localhost'
 ServerPort = 12000
 ClientPort = 12001
 
+#file.seek constants
+FILE_ENDG   = 2
+FILE_CURR   = 1
+FILE_STRT   = 0
 
 #create destination file
 dstFile = 'dstPic.bmp'

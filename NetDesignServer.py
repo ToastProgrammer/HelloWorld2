@@ -47,14 +47,13 @@ def ServerMain():
     while 1:
         # Wait here until recieve message from socket
         print("Outer Loop")
+
         moreData = True
-        #onceThrough = False
         writeIndex = 0
         expectedSeqNum = 1
         sndpkt = PackageHeader(ACK,expectedSeqNum)
         while(moreData):
-            rcvpkt = rdt_rcv(serverSocket)
-
+            print(rcvpkt)
             if CheckChecksum(rcvpkt) and CheckSequenceNum(rcvpkt, expectedSeqNum):  # If Checksum & seq num correct
                 expectedSeqNum += 1
 
